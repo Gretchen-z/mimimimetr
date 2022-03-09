@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mimimimetr cats pair</title>
+</head>
+<body>
+<h3>Нажми на котика, который тебе больше нравится!</h3>
+
+<table>
+    <tr>
+        <td>
+            <a th:href="@{/pairs/vote(catId=${catOne.id})}">
+                <img th:src="@{/photos(catId=${catOne.id})}"
+                     width="300" height="300">
+            </a>
+        </td>
+
+        <td>
+            <a th:href="@{/pairs/vote(catId=${catTwo.id})}">
+                <img th:src="@{/photos(catId=${catTwo.id})}"
+                     width="300" height="300">
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center; vertical-align: middle;">
+            <a th:href="@{/pairs/vote(catId=${catOne.id})}">
+                <th:block th:utext="${catOne.name}"/>
+            </a>
+        </td>
+
+        <td style="text-align: center; vertical-align: middle;">
+            <a th:href="@{/pairs/vote(catId=${catTwo.id})}">
+                <th:block th:utext="${catTwo.name}"/>
+            </a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

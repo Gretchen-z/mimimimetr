@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1.0"
+      author: gretchen
+      changes:
+        - createTable:
+            tableName: cats
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar (50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: photo
+                  type: bytea
+              - column:
+                  name: voices
+                  type: bigint
+
+        - createTable:
+            tableName: pairs
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: cat_one_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: FK_CAT_ONE_PAIRS
+                    references: cats(id)
+              - column:
+                  name: cat_two_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: FK_CAT_TWO_PAIRS
+                    references: cats(id)
+
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: login
+                  type: varchar (50)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: users_pairs
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: FK_USER_USERS_PAIRS
+                    references: users (id)
+              - column:
+                  name: pair_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: FK_PAIR_USERS_PAIRS
+                    references: pairs (id)

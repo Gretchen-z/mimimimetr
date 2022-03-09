@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mimimimetr registration</title>
+</head>
+<body>
+<h3>Введите имя пользователя:</h3>
+<form action="#" th:action="@{/users/login}"
+      th:object="${user}" method="post">
+    <input type="text" th:field="*{login}" placeholder="Имя пользователя">
+    <button type="submit">Начать голосовать за котиков!</button>
+</form>
+
+</body>
+</html>
