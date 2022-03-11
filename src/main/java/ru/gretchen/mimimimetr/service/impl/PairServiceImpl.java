@@ -13,6 +13,7 @@ import ru.gretchen.mimimimetr.service.CatService;
 import ru.gretchen.mimimimetr.service.PairService;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -53,6 +54,8 @@ public class PairServiceImpl implements PairService {
 
     @PostConstruct
     private void createPairs() {
+        pairRepository.deleteAll();
+
         List<CatEntity> cats = catService.getAll();
         for (CatEntity cat : cats) {
             for (int i = cats.indexOf(cat) + 1; i < cats.size(); i++) {
@@ -63,4 +66,5 @@ public class PairServiceImpl implements PairService {
             }
         }
     }
+
 }
