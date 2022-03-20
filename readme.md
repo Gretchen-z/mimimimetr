@@ -1,13 +1,36 @@
-# Мимимиметр
+## Тестовое задание "Мимимиметр"
+
+<details>
+    <summary>Описание тестового задания</summary>
+    [описание тестового задания](https://github.com/i-novus-llc/job-test/tree/master/mimimimetr)
+</details>
+
+### Решение
+
+Результатом выполнения тестового задания стало 
+приложение с использованием следующих технологий:
+- Java 11
+- Maven
+- Spring Boot 2
+- Spring Data JPA
+- Spring MVC
+- Thymeleaf
+- Lombok
+- Swagger
+- Luquibase
+- PostgreSQL
+- Mapstruct
+
+### Описание приложения
 
 Приложение, в котором вы можете проголосовать за одного 
 из двух предложенных котиков, кликнув по его фотографии
 или по его кличке:
-![Alt text](screenshots/pair1.jpg "Title")
+<img src="screenshots/pair1.jpg" width="550"/>
 
 После первого выбора вам будет показана 
 следующая пара котиков:
-![Alt text](screenshots/pair2.jpg "Title")
+<img src="screenshots/pair2.jpg" width="550"/>
 
 И так, пока не закончатся все пары. 
 Пары подбираются случайно, повторений пар нет.
@@ -15,16 +38,35 @@
 Когда пары заканчиваются, пользователю показывается топ котиков, 
 собранный из голосов всех пользователей:
 
-![Alt text](screenshots/result.jpg "Title")
+<img src="screenshots/result.jpg" width="550"/>
 
 При входе в приложение необходимо зарегистрироваться 
 (вписать в предложенное окошко свой логин):
-![Alt text](screenshots/reg.jpg "Title")
+<img src="screenshots/reg.jpg" width="550"/>
 
 В программе предустановлены 6 котиков.
 Для каждого пользователя формируется случайный порядок, 
 в котором ему будут показаны пары котиков.
 
-### Стек технологий:
-Java 11, Maven, Spring Boot, Spring MVC, MapStruct, Swagger,
-PostgreSQL, Liquibase, Lombok, Thymeleaf.
+### Запуск приложения
+
+Запустить приложение можно из любой IDE, прописав 
+пути к spring.datasource.url, spring.datasource.username 
+и spring.datasource.password в application.yml или 
+переменных окружения
+
+#### Запуск из коммандной строки:
+1. В корне проекта выполнить комманду для сборки проекта:
+````
+mvn package
+````
+
+2. Перейти в папку `target`:
+````
+cd target
+````
+
+3. Запустить проект:
+````
+java -jar <имя_файла.jar>
+````
